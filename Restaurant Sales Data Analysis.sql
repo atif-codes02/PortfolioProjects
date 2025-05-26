@@ -40,7 +40,7 @@ GROUP BY category;
 --  View the order_details table.
 SELECT * FROM order_details;
 
---  What is the date range of the table?
+--  What is the table's date range?
 SELECT MIN(order_date), MAX(order_date) FROM order_details;
 
 --  How many orders were made within this date range?
@@ -79,7 +79,7 @@ FROM order_details od LEFT JOIN menu_items mi
 GROUP BY item_name, category
 ORDER BY num_purchases ;
 
---  What were that top 5 orders that spent the most money?
+--  What were the top 5 orders that spent the most money?
 
 SELECT order_id, SUM(price) AS total_spend
 FROM order_details od LEFT JOIN menu_items mi 
@@ -88,7 +88,7 @@ GROUP BY order_id
 ORDER BY total_spend DESC
 LIMIT 5;
 
---  View the details of the highest spend order. What insights can you gather from the
+--  View the details of the highest spending order. 
 
 SELECT category, COUNT(item_id) AS num_items
 FROM order_details od LEFT JOIN menu_items mi 
@@ -97,7 +97,7 @@ WHERE order_id = 440
 GROUP BY category;
 
 
---  View the details of the top 5 higest spend orders. What insights can you gather
+--  View the details of the top 5 highest spending orders. 
 
 SELECT order_id, category, COUNT(item_id) AS num_items
 FROM order_details od LEFT JOIN menu_items mi 
